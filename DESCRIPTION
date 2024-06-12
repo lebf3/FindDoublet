@@ -1,0 +1,17 @@
+Package: FindDoublet
+Title: Find Doublets in Seurat Object
+Version: 0.0.0.9000
+Authors@R: person("Francis", "Leblanc", email = "francis.leblanc.3@umontreal.ca", role = c("aut", "cre"))
+Description: This package provides a function to find and visualize doublets in subclusters of a Seurat object.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports: 
+    dplyr,
+    ggplot2,
+    harmony,
+    presto,
+    Seurat,
+    magrittr,
+    patchwork
