@@ -37,6 +37,9 @@ find_doublets <- function(so = seurat_object,
 
   set.seed(2024)
 
+  DefaultAssay(so) <- "RNA"
+  so <- NormalizeData(so)
+
   markers.top1 <- presto:::wilcoxauc.Seurat(X = so,
                                             group_by = cell_type_col,
                                             assay = "data",
@@ -45,7 +48,7 @@ find_doublets <- function(so = seurat_object,
     dplyr::group_by(group) %>%
     dplyr::slice_max(auc, n = 1)
 
-  Idents(so) <- so[[cell_type_col]]
+  Idents(so) <- factor(so[[cell_type_col]])
   celltypes <- as.character(unique(Idents(so)))
 
   create_directory <- function(path) {
